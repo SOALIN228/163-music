@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/SOALIN228/163-music#readme",
   "dependencies": {
-    "leancloud-storage": "^3.13.2"
+    "jquery": "^3.4.1",
+    "leancloud-storage": "^3.6.0",
+    "plupload": "^2.3.2",
+    "qiniu": "^7.1.2",
+    "qiniu-js": "^1.0.22"
   }
 }
