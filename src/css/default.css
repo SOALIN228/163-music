@@ -37,12 +37,11 @@ body {
 
 .page > aside {
     width: 200px;
-    border: 1px solid red;
 }
 
 .page > main {
     flex-grow: 1;
-    border: 1px solid green;
+    padding-left: 20px;
 }
 
 /* aside */
@@ -90,4 +89,50 @@ body {
 .clickable {
     cursor: pointer;
     width: 100%;
+}
+
+/* main */
+.page > main {
+    background-color: #d4d4d4;
+}
+.form {
+    font-size: 14px;
+}
+
+.form > .row {
+    margin: 20px 0;
+    display: flex;
+}
+
+.form > .row > label {
+    display: inline-block;
+    width: 4em;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.form > .row.actions {
+    margin-left: calc(4em + 5px);
+}
+
+.form input[type=text] {
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.form input[type=submit],
+.form input[type=button],
+.form button {
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.page > main {
+    padding-top: 20px;
 }
