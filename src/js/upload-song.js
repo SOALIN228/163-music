@@ -44,7 +44,10 @@
             let domain = up.getOption('domain')
             let response = JSON.parse(info.response)
             let sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key)
-            console.log(sourceLink)
+            window.eventHub.emit('upload', { // 发布
+              url: sourceLink,
+              name: response.key
+            })
             uploadStatus.textContent = sourceLink + ' ' + response.key
           },
           //上传出错时,处理相关的事情
