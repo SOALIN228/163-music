@@ -22,6 +22,15 @@
   let model = {
     data: {
       songs: []
+    },
+    find () {
+      let query = new AV.Query('Song')
+      return query.find().then((songs) => {
+        this.data.songs = songs.map((songs) => {
+          return {id: songs.id, ...songs.attributes}
+        })
+        return songs
+      })
     }
   }
   let controller = {
@@ -35,6 +44,9 @@
       window.eventHub.on('create', (songData) => { // 订阅
         this.model.data.songs.push(songData) // 将新建歌曲的数据保存
         this.view.render(this.model.data) // 将新建歌曲数据渲染到视图上
+      })
+      this.model.find().then(() => {
+        this.view.render(this.model.data)
       })
     }
   }
