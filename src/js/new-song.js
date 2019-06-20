@@ -15,12 +15,18 @@
       this.model = model
       this.view.render(this.model.data) // 模板渲染
       this.active()
-      window.eventHub.on('upload', (data)=>{ // 订阅
+      window.eventHub.on('upload', (data) => { // 订阅
         this.active()
       })
+      window.eventHub.on('select', (data) => {
+        this.deactive()
+      })
     },
-    active() { // 添加 active
+    active () { // 添加 active
       $(this.view.el).addClass('active')
+    },
+    deactive () {
+      $(this.view.el).removeClass('active')
     }
   }
   controller.init(view, model)
