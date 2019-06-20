@@ -5,7 +5,6 @@
       this.$el = $(this.el)
     },
     template: `
-      <h1>新建歌曲</h1>
       <form action="" class="form">
         <div class="row">
           <label>歌名</label>
@@ -31,6 +30,11 @@
         html = html.replace(`__${string}__`, data[string] || '') // 避免置空时出现 undefined
       })
       $(this.el).html(html) // 渲染
+      if (data.id) {
+        $(this.el).prepend('<h1>编译歌曲</h1>')
+      } else {
+        $(this.el).prepend('<h1>新建歌曲</h1>')
+      }
     },
     reset () {
       this.render({}) // 置空
@@ -70,6 +74,12 @@
       })
       window.eventHub.on('select', (data) => {
         this.model.data = data
+        this.view.render(this.model.data)
+      })
+      window.eventHub.on('new', () => {
+        this.model.data = {
+          name: '', singer: '', url: '', id: ''
+        }
         this.view.render(this.model.data)
       })
     },

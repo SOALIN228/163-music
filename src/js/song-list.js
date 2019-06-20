@@ -77,6 +77,9 @@
         this.model.data.songs.push(songData) // 将新建歌曲的数据保存
         this.view.render(this.model.data) // 将新建歌曲数据渲染到视图上
       })
+      window.eventHub.on('new', () => {
+        this.view.clearActive()
+      })
     }
   }
   controller.init(view, model)
