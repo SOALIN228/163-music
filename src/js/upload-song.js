@@ -44,7 +44,7 @@
             let domain = up.getOption('domain')
             let response = JSON.parse(info.response)
             let sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key)
-            window.eventHub.emit('upload', { // 发布
+            window.eventHub.emit('new', { // 发布
               url: sourceLink,
               name: response.key
             })

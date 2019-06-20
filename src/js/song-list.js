@@ -70,9 +70,6 @@
       })
     },
     bindEventHub () {
-      window.eventHub.on('upload', () => { // 订阅
-        this.view.clearActive() // 移除 active
-      })
       window.eventHub.on('create', (songData) => { // 订阅
         this.model.data.songs.push(songData) // 将新建歌曲的数据保存
         this.view.render(this.model.data) // 将新建歌曲数据渲染到视图上

@@ -68,18 +68,15 @@
       this.model = model
       this.view.render(this.model.data) // 渲染模板
       this.bindEvents()
-      window.eventHub.on('upload', (data) => { // 订阅
-        this.model.data = data
-        this.view.render(data)
-      })
       window.eventHub.on('select', (data) => {
         this.model.data = data
         this.view.render(this.model.data)
       })
-      window.eventHub.on('new', () => {
-        this.model.data = {
+      window.eventHub.on('new', (data) => {
+        data = data || {
           name: '', singer: '', url: '', id: ''
         }
+        this.model.data = data
         this.view.render(this.model.data)
       })
     },
